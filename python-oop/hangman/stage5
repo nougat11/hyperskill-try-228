@@ -1,0 +1,22 @@
+from random import choice
+print("""
+H A N G M A N""")
+words = ['python', 'java', 'swift', 'javascript']
+correct_word = choice(words)
+letters = set(correct_word)
+mask = ['-' for i in range(len(correct_word))]
+tries = 8
+while tries:
+    print()
+    print(*mask, sep='')
+    letter = input('Input a letter: > ')
+    if letter in letters:
+        
+        for i in range(len(mask)):
+            if correct_word[i] == letter:
+                mask[i] = letter
+    else:
+        print("That letter doesn't appear in the word.")
+    tries -= 1
+print()
+print('Thanks for playing!')
