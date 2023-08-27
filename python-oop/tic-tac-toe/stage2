@@ -1,0 +1,6 @@
+field = input()
+print('-' * 9)
+print('| ' + ' '.join(field[:3]) + ' |')
+print('| ' + ' '.join(field[3:6]) + ' |')
+print('| ' + ' '.join(field[6:9]) + ' |')
+print('-' * 9)
