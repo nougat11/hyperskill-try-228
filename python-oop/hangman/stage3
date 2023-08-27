@@ -1,0 +1,7 @@
+from random import choice
+print("""
+H A N G M A N""")
+words = ['python', 'java', 'swift', 'javascript']
+correct_word = choice(words)
+word = input('Guess the word: > ')
+print('You survived!' if word == correct_word else 'You lost!')
