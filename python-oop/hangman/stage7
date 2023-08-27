@@ -1,0 +1,39 @@
+from random import choice
+print("""
+H A N G M A N""")
+words = ['python', 'java', 'swift', 'javascript']
+correct_word = choice(words)
+letters = set(correct_word)
+mask = ['-' for i in range(len(correct_word))]
+correct_letters = set()
+tries = 8
+while tries:
+    if '-' not in mask:
+        print()
+        print(f'You guessed the word {correct_word}!')
+        print('You survived!')
+        break
+    print()
+    print(*mask, sep='')
+    letter = input('Input a letter: > ')
+    if len(letter) != 1:
+        print('Please, input a single letter.')
+        continue
+    if not letter.isalpha() or not letter.islower():
+        print('Please, enter a lowercase letter from the English alphabet.')
+        continue
+    
+    if letter in correct_letters:
+        print("You've already guessed this letter.")
+    elif letter in letters:
+        
+        for i in range(len(mask)):
+            if correct_word[i] == letter:
+                mask[i] = letter
+    else:
+        print("That letter doesn't appear in the word.")
+        tries -= 1
+    correct_letters.add(letter)
+print()
+if '-' in mask:
+    print('You lost!')
