@@ -1,0 +1,36 @@
+user_input = input("Enter cells: ")
+l = list(user_input)
+
+board = [
+    [l[0], l[1], l[2]],
+    [l[3], l[4], l[5]],
+    [l[6], l[7], l[8]]
+]
+
+
+def grid():
+    print("---------")
+    print(f"| {board[0][0]} {board[0][1]} {board[0][2]} |")
+    print(f"| {board[1][0]} {board[1][1]} {board[1][2]} |")
+    print(f"| {board[2][0]} {board[2][1]} {board[2][2]} |")
+    print("---------")
+
+
+grid()
+
+while True:
+    coor = input("Enter the coordinates: ")
+    n = [x for x in coor.split() if x.isalpha()]
+    if len(n) > 0:
+        print("You should enter numbers!")
+    else:
+        row, col = coor.split()
+        row, col = int(row), int(col)
+        if row > 3 or col > 3:
+            print("Coordinates should be from 1 to 3!")
+        elif board[row - 1][col - 1] == "_":
+            board[row - 1][col - 1] = "X"
+            grid()
+            break
+        else:
+            print("This cell is occupied! Choose another one!")
