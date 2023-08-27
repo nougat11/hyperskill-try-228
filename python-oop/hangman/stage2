@@ -1,0 +1,5 @@
+print("""
+H A N G M A N""")
+correct_word = 'python'
+word = input('Guess the word: > ')
+print('You survived!' if word == correct_word else 'You lost!')
